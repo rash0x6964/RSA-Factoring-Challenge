@@ -14,10 +14,10 @@ def factorize(n):
 			return i, n // i
 	return None
 
-def main(file_path):
+def process(file_path):
 	with open(file_path, 'r') as file:
 		for line in file:
-			num = int(line.strip())
+			num = int(line)
 			factors = factorize(num)
 			if factors:
 				print(f"{num}={factors[1]}*{factors[0]}")
@@ -27,5 +27,4 @@ if __name__ == "__main__":
 		print("Usage: factors <file>", file=sys.stderr)
 		sys.exit(1)
 
-	file_path = sys.argv[1]
-	main(file_path)
+	process(sys.argv[1])
